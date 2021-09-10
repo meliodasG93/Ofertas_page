@@ -1,0 +1,106 @@
+:root {
+    --blanco: #ffffff;
+    --fondo: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+header {
+    padding: 30px 0;
+}
+
+header {
+    padding: 30px 0;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logotipo {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--blanco);
+    font-size: 40px;
+}
+
+header nav a {
+    color: #AAA;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color: #FFF;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    header .logotipo {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+    header .contenedor {
+        flex-direction: column;
+        text-align: center;
+    }
+   
+}
+
+footer {
+    background-color: #202020;
+    margin-top: 55px;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    bottom: 0;
+    font-size: 19px;
+}
+
+footer>nav>h4>a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 5px;
+    text-align: center;
+}
+
+
+/* tamaño icono  */
+
+footer>nav>a>img {
+    width: 55px;
+    height: 55px;
+    text-align: right;
+}
+
+footer>nav>a {
+    width: 55px;
+    height: auto;
+}
+
+footer>nav {
+    text-align: left;
+}
+
+footer>nav>h4 {
+    text-align: center;
+}
+
