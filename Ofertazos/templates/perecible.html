@@ -1,0 +1,64 @@
+{% include 'cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/stPagP.css' %}">
+
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    {% block header %}
+    {% endblock %}
+        
+        <h3>TIENDAS DE RITEIL CON LAS QUE OBTENDRAS DESCUENTAS</h3>
+        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis consectetur unde dolore dolores, quisquam et animi dicta. Quas ipsa beatae in nostrum dolore illo sed, modi, quo aut placeat unde.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis consectetur unde dolore dolores, quisquam et animi dicta. Quas ipsa beatae in nostrum dolore illo sed, modi, quo aut placeat unde.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis consectetur unde dolore dolores, quisquam et animi dicta. Quas ipsa beatae in nostrum dolore illo sed, modi, quo aut placeat unde.</P>
+        
+        <a title="LIDER" href="">
+            <img src="{% static 'img/lider.png' %}" alt="LIDER" width="300" height="300"></a>
+        
+        <a title="COPEC" href="">
+            <img src="{% static 'img/copec.jpg' %}" alt="COPEC" width="300" height="300"></a>
+
+        <a title="TOTTUS" href="">
+            <img src="{% static 'img/tottus.jpg' %}" alt="TOTTUS" width="300" height="300"></a>
+
+        <a title="JUMBO" href="">
+            <img src="{% static 'img/jumbo.png' %}" alt="JUMBO" width="300" height="300"></a>
+
+        <a title="SUPERPOLLO" href="">
+            <img src="{% static 'img/spollo.jpg' %}" alt="SUPERPOLLO" width="300" height="300"></a>
+
+        <a title="SANTAISABEL" href="">
+            <img src="{% static 'img/santaIsabel.png' %}" alt="SANTAISABEL" width="300" height="300"></a>
+
+        <a title="ACUENTA" href="">
+            <img src="{% static 'img/acuenta.jpg' %}" alt="ACUENTA" width="300" height="300"></a>
+
+<br>
+
+    <h1>COMO GENERAR UN DESCUENTO CON ESTAS TIENDAS</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dicta laborum incidunt commodi! Quo saepe facilis vel voluptatem debitis. Quasi consequuntur est fuga. Ex recusandae iste, atque officiis possimus accusantium!Lorem
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dicta laborum incidunt commodi! Quo saepe facilis vel voluptatem debitis. Quasi consequuntur est fuga. Ex recusandae iste, atque officiis possimus accusantium!Lorem
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dicta laborum incidunt commodi! Quo saepe facilis vel voluptatem debitis. Quasi consequuntur est fuga. Ex recusandae iste, atque officiis possimus accusantium!Lorem</p>
+
+
+    <h2>¿DONDE TE GUSTARIA GENERAR EL DESCUENTO?</h2>
+    <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione excepturi animi eligendi nesciunt maiores? Velit veritatis labore ad? Esse odio tempore amet necessitatibus fuga mollitia! Nihil, quas cupiditate? Cum, labore.</P>
+    {% include 'footer.html' %}
+    {% block footer %}
+    {% endblock %}
+    </body>
+
+</html>

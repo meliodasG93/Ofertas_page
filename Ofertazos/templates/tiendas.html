@@ -1,0 +1,64 @@
+{% include 'cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/stPagP.css' %}">
+
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+{% block header %}
+{% endblock %}
+
+
+<body>
+        <div class="cuerpo">
+            <a title="Falabella" href="TECNOLOGIA"> 
+                <img src="{% static 'img/fallabella.jpg' %}" alt="falabella" width="300" height="300"></a>
+    
+            <a title="Sodimac" href="https://www.sodimac.cl/sodimac-cl/">
+                <img src="{% static 'img/sodimac.jpg' %}" alt="Sodimac" width="300" height="300"></a>
+    
+            <a title="Líder" href="https://www.lider.cl/supermercado/?gclid=Cj0KCQjw4eaJBhDMARIsANhrQABMoQcsO-fhnPPVHZKlwGLrAG0xMVFv4pWrIipl-wwdDzsXSVk9X30aAj6vEALw_wcB">
+                <img src="{% static 'img/lider.png' %}" alt="Líder" width="300" height="300"></a>
+    
+            <a title="Copec" href="https://www.tiendacopec.cl/?gclid=Cj0KCQjw4eaJBhDMARIsANhrQADVX3fAmAV1qMyVaBDYKuc4nxnOlECKduhNJmM91Nx5bnbPIioHqmsaAlnLEALw_wcB">
+                <img src="{% static 'img/copec.jpg' %}" alt="copec" width="300" height="300"></a>
+    
+            <a title="Tottus" href="https://www.tottus.cl/">
+                <img src="{% static 'img/tottus.jpg' %}" alt="tottus" width="300" height="300"></a>
+    
+            <a title="Paris" href="https://www.paris.cl/">
+                <img src="{% static 'img/paris.jpg' %}" alt="paris" width="300" height="300"></a>
+    
+            <a title="Ripley" href="https://simple.ripley.cl/">
+                <img src="{% static 'img/ripley.jpg' %}" alt="ripley" width="300" height="300"></a>
+    
+            <a title="jumbo" href="https://www.jumbo.cl/?gclid=Cj0KCQjw4eaJBhDMARIsANhrQABJdxWnLj-_pDEAQNR2fAIRkBwO-Hp0LnrBd-Uk9ZtwFh1nkHj5Vf8aApbtEALw_wcB">
+                <img src="{% static 'img/jumbo.png' %}" alt="jumbo" width="300" height="300"></a>
+    
+            <a title="superPollo" href="https://www.superpollo.cl/">
+                <img src="{% static 'img/spollo.jpg' %}" alt="superPollo" width="300" height="300"></a>
+    
+            <a title="santaIsabel" href="https://www.santaisabel.cl/?gclid=Cj0KCQjw4eaJBhDMARIsANhrQAAmABUAcBQlme_OBfWBK1xL9V-5vZpX5mcZTXFsNBwIGcdTXNMP7RgaAj_2EALw_wcB">
+                <img src="{% static 'img/santaIsabel.png' %}" alt="santaIsabel" width="300" height="300"></a>
+    
+            <a title="acuenta" href="https://www.acuenta.cl/?gclid=Cj0KCQjw4eaJBhDMARIsANhrQAACpAn96wNtz28dkNxrHUZTyYWzYqZICJL6yb2EogmIUnlUiGU6EOYaAuxHEALw_wcB">
+                <img src="{% static 'img/acuenta.jpg' %}" alt="acuenta" width="300" height="300"></a>
+        </div>
+        {% include 'footer.html' %}
+        {% block footer %}
+        {% endblock %}
+    </body>
+
+
+</html>

@@ -1,0 +1,73 @@
+{% block footer %}
+{% load static %}
+<footer>
+   
+    <div class="container-footer-all">
+     
+         <div class="container-body">
+
+             <div class="colum1">
+                 <h1>Mas informacion de la compañia</h1>
+
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, explicabo maiores necessitatibus sed blanditiis officiis minus eos dolore incidunt saepe maxime accusantium ducimus minima quos doloribus odit iusto asperiores in.</p>
+
+             </div>
+
+             <div class="colum2">
+
+                 <h1>Redes Sociales</h1>
+
+                 <div class="row">
+                     <img src="{% static 'img/facebook.png' %}">
+                     <a href="https://www.facebook.com/">Siguenos en Facebook</a>
+                 </div>
+                 <div class="row">
+                     <img src="{% static 'img/twitter.png' %}">
+                     <a href="https://twitter.com/?lang=es">Siguenos en Twitter</a>                            
+                 </div>
+                 <div class="row">
+                     <img src="{% static 'img/instagram.png' %}">
+                      <a href="https://www.instagram.com/">Siguenos en Instagram</a>
+                 </div>
+             </div>
+
+             <div class="colum3">
+
+                 <h1>Informacion Contactos</h1>
+
+                 <div class="row2">
+                     <img src="{% static 'img/house.png' %}">
+                     <label> Álvarez 2336, Viña del Mar, Valparaíso</label>
+                 </div>
+
+                 <div class="row2">
+                     <img src="{% static 'img/smartphone.png' %}">
+                     <label>(32) 226 8600</label>
+                 </div>
+
+                 <div class="row2">
+                     <img src="{% static 'img/contact.png' %}">
+                      <label>OFERTAZOS@gmail.com</label>
+                 </div>
+
+             </div>
+
+         </div>
+     
+     </div>
+     
+     <div class="container-footer">
+            <div class="footer">
+                 <div class="copyright">
+                     © 2021 Todos los Derechos Reservados | <a href=""> OFERTAZOS</a>
+                 </div>
+
+                 <div class="information">
+                     <a href="">Informacion Compañia</a> | <a href="">Privacion y Politica</a> | <a href="">Terminos y Condiciones</a>
+                 </div>
+             </div>
+
+         </div>
+     
+ </footer>
+{% endblock %}

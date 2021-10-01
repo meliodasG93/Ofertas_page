@@ -1,0 +1,88 @@
+{% include 'cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/stPagP.css' %}">
+
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+    <body>
+        {% block header %}
+        {% endblock %}
+
+        <main>
+            <div class="menu-principal">
+                <div class="contenedor">
+                    <h3 class="titulo">OFERTAZOS</h3>
+                    <p class="descripcion">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ad, numquam accusantium sed laborum dolorum maxime rem nihil saepe, molestiae laudantium nesciunt. Similique pariatur nisi dolorem facere consequatur provident incidunt!
+                    </p>
+                </div>
+            </div>
+        </main>
+    <br>
+    <div class="cuerpo">
+        <h2>LO QUE PUEDES ENCONTRAR EN OFERTAZOS</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit incidunt consequatur explicabo similique? Placeat blanditiis debitis illo unde ducimus qui tenetur, soluta tempora consequuntur numquam. Voluptatem non esse nostrum maiores!</p>
+        <br>
+        <a title="TECNOLOGIA" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/tecnologia.png' %}" alt="TECNOLOGIA" width="300" height="300"></a>
+        <a title="MODA" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/moda.jpg' %}" alt="MODA" width="300" height="300"></a>
+
+        <a title="ROPA" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/ropa.png' %}" alt="ROPA" width="300" height="300"></a>
+
+        <a title="CALZADO" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/calzado.jpg' %}" alt="CALZADO" width="300" height="300"></a>
+
+        <a title="COMIDA" href="{% url 'perecible' %}">
+            <img src="{% static 'img/comida.png' %}" alt="COMIDA" width="300" height="300"></a>
+
+        <a title="DEPORTES" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/deportes.png' %}" alt="DEPORTES" width="300" height="300"></a>
+
+        <a title="ASEO" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/cuidado.png' %}" alt="ASEO" width="300" height="300"></a>
+
+        <a title="MASCOTAS" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/mascotas.jpg' %}" alt="MASCOTAS" width="300" height="300"></a>
+
+        <a title="ELECTRODOMESTICOS" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/electrodomesticos.jpg' %}" alt="ELECTRODOMESTICOS" width="300" height="300"></a>
+
+        <a title="VIDEOJUEGOS" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/videojuegos.jpg' %}" alt="VIDEOJUEGOS" width="300" height="300"></a>
+
+        <a title="JARDINERIA" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/jardineria.jpg' %}" alt="JARDINERIA" width="300" height="300"></a>
+
+        <a title="HERRAMIENTAS" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/HERRAMIENTOAS.png' %}" alt="HERRAMIENTAS" width="300" height="300"></a>
+    
+        <a title="LIMPIEZA" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/limpieza.png' %}" alt="LIMPIEZA" width="300" height="300"></a>
+
+        <a title="MEDICAMENTOS" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/medicamentos.png' %}" alt="MEDICAMENTOS" width="300" height="300"></a>
+
+        <a title="LIBRERIA" href="{% url 'Noperecible' %}">
+            <img src="{% static 'img/libreria.png' %}" alt="LIBRERIA" width="300" height="300"></a>
+    </div>
+       {% include 'footer.html' %}
+       {% block footer %}
+       {% endblock %}
+    </body>
+
+</html>

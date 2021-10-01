@@ -1,0 +1,126 @@
+{% include 'cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/stPagP.css' %}">
+
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    {% block header %}
+    {% endblock %}
+
+    <form >
+        <H1>DATOS DEL USUARIO</H1>
+        <div>
+            <label for="">Ingrese su Nombre:</label>
+            <input type="" placeholder="Nombre">
+        </div>
+       <div>
+        <label for="">Ingrese sus Apellidos:</label>
+        <input type="" placeholder="apellidos">
+       </div>
+
+       <div>
+        <label for="">Ingrese su RUT:</label>
+        <input type="number" name="" id="">
+       </div>
+
+       <div>
+        <label for="">Ingrese su Direccion:</label>
+        <input type="" placeholder="Direccion">
+       </div>
+
+       <div>
+        <label for="">Ingrese su Correo:</label>
+        <input type="email" name="email" id="">
+       </div>
+
+       <div>
+        <label for="">Ingrese su nombre de usuario</label>
+        <input type="text" placeholder="Nombre de usuario">
+       </div>
+
+       <div>
+        <label for="">Ingrese su contraseña:</label>
+        <input type="password" name="" id="">
+       </div>
+
+       <div>
+        <label for="">Confirmar su constraseña:</label>
+        <input type="password" name="" id="">
+       </div>
+
+       <div>
+           <label for=" ">Cual es su:</label>
+           <select name="" id="">
+               <option value="Sexo">Sexo</option>
+               <option value="Masculino">Masculino</option>
+               <option value="Femenino">Femenino</option>
+               <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+               <option value="Personalizado">Personalizado</option>
+           </select>
+       </div>
+
+       <div>
+           <label for="">Fecha de nacimiento:</label>
+           <input type="date" name="" id="">
+       </div>
+
+       <div>
+        <br>
+       <h2>SELECCIONE SUS PREFERENCIAS</h2>
+           <br>
+           <input type="checkbox" name="" id="">Tecnologia
+           <br>
+           <input type="checkbox" name="" id="">Moda 
+           <br>
+           <input type="checkbox" name="" id="">Ropa
+           <br>
+           <input type="checkbox" name="" id="">Calzado
+           <br>
+           <input type="checkbox" name="" id="">Comida y bebidas
+           <br>
+           <input type="checkbox" name="" id="">Deportes
+           <br>
+           <input type="checkbox" name="" id="">Cuidado personal
+           <br>
+           <input type="checkbox" name="" id="">Mascotas
+           <br>
+           <input type="checkbox" name="" id="">Electrodomesticos
+           <br>
+           <input type="checkbox" name="" id="">Videojuegos
+           <br>
+           <input type="checkbox" name="" id="">Jardineria
+           <br>
+           <input type="checkbox" name="" id="">Herramientas
+           <br>
+           <input type="checkbox" name="" id="">Limpieza
+           <br>
+           <input type="checkbox" name="" id="">Medicamentos
+           <br>
+           <input type="checkbox" name="" id="">Libreria          
+       </div>
+
+       <div>
+            <input type="button" value="Guardar">
+       </div>
+
+    </form>
+    {% include 'footer.html' %}
+    {% block footer %}
+    {% endblock %}
+
+</body>
+
+</html>

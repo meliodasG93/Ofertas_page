@@ -1,0 +1,71 @@
+{% include 'cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/stPagP.css' %}">
+
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  
+    {% block header %}
+
+    {% endblock %}
+<H2>AGREGAR PRODUCTO</H2>
+<img src="{% static 'img/producto.png' %}" alt="LIMPIEZA" width="300" height="300"></a>
+
+<style>
+    table,td,th{
+        border: 1px solid black;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>NOMBRE</th>
+        <th>PRECIO</th>
+        <th>TIEMPO DE OFERTA</th>
+        <th>DESCRIPCION</th>
+        <th>LINK DEL PRODUCTO</th>
+    </tr>
+    <td>
+        <th> </th>
+        <th>9999</th>
+        <th>00:00</th>
+        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis saepe doloribus dolores accusantium eaque, voluptates libero in eos assumenda rerum, error nostrum incidunt non totam aliquid aliquam! A, obcaecati nobis.</th>
+        <th>LINK DEL PRODUCTO</th>
+    </td>
+</table>
+<br>
+<div>
+    <input type="button" value="Limpiar">
+</div>
+<div>
+    <input type="button" value="Guardar">
+</div>
+<div>
+    <input type="button" value="Eliminar">
+</div>
+<div>
+    <input type="button" value="Modificar">
+</div>
+
+    
+{% include 'footer.html' %}
+{% block footer %}
+
+{% endblock %}
+</body>
+
+</html>

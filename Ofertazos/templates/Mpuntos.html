@@ -1,0 +1,72 @@
+{% include 'cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/stPagP.css' %}">
+
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    {% block header %}
+    {% endblock %}
+
+<h3>MIS DATOS</h3>
+<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptates illo dignissimos repudiandae mollitia fuga ratione accusantium, animi, facere veniam nisi magni nihil placeat qui! Hic fugiat adipisci nihil optio.</P>
+<img src="{% static 'img/usuario.png' %}" alt="usuario" width="300" height="300">
+<div>
+    <label for="">Ingrese su Nombre: USUARIO</label>
+</div>
+<div>
+    <label for="">Ingrese su Apellidos: APELLIDO PILA</label>
+</div>
+<div>
+    <label for="">Ingrese su Direccion: Direccion</label>
+</div>
+<div>
+    <label for="">Ingrese su Gmail: USer@gmail.com</label>
+</div>
+<div>
+    <label for="">CUANTOS PUNTOS TIENES:+10PTS</label>
+</div>
+
+<H1>PRODUCTOS QUE HA COMPRADO</H1>
+<a title="VIDEOJUEGOS" href="{% url 'Noperecible' %}">
+    <img src="{% static 'img/videojuegos.jpg' %}" alt="VIDEOJUEGOS" width="300" height="300"></a>
+
+<a title="JARDINERIA" href="{% url 'Noperecible' %}">
+    <img src="{% static 'img/jardineria.jpg' %}" alt="JARDINERIA" width="300" height="300"></a>
+
+<a title="HERRAMIENTAS" href="{% url 'Noperecible' %}">
+    <img src="{% static 'img/HERRAMIENTOAS.png' %}" alt="HERRAMIENTAS" width="300" height="300"></a>
+
+<a title="LIMPIEZA" href="{% url 'Noperecible' %}">
+    <img src="{% static 'img/limpieza.png' %}" alt="LIMPIEZA" width="300" height="300"></a>
+
+<a title="LIBRERIA" href="{% url 'Noperecible' %}">
+    <img src="{% static 'img/libreria.png' %}" alt="LIBRERIA" width="300" height="300"></a>
+
+<a title="DEPORTES" href="{% url 'Noperecible' %}">
+   <img src="{% static 'img/deportes.png' %}" alt="DEPORTES" width="300" height="300"></a>
+
+<a title="TECNOLOGIA" href="{% url 'Noperecible' %}">
+    <img src="{% static 'img/tecnologia.png' %}" alt="TECNOLOGIA" width="300" height="300"></a>
+
+    <div>
+        <input type="button" value="SUBIR BOLETA">
+   </div>
+ {% include 'footer.html' %}
+ {% block footer %}
+ {% endblock %}
+</body>
+
+</html>
