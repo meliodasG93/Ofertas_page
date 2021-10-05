@@ -1,4 +1,4 @@
-{% include 'cabeza.html' %}
+{% include 'bloques/cabeza.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,7 @@
     <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
     <link href="{% static 'https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
 
 </head>
 
@@ -35,6 +36,11 @@
     <div class="cuerpo">
         <h2>LO QUE PUEDES ENCONTRAR EN OFERTAZOS</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit incidunt consequatur explicabo similique? Placeat blanditiis debitis illo unde ducimus qui tenetur, soluta tempora consequuntur numquam. Voluptatem non esse nostrum maiores!</p>
+<!--======================================Bloque de categorias=============================================================================================================================================-->        
+        {% include 'bloques/categoria.html' %}
+        {% block ContentCategoria %}
+        {% endblock %}
+<!-----====================================Imagenes categorias==========================================================================================================================================================================------->
         <br>
         <a title="TECNOLOGIA" href="{% url 'Noperecible' %}">
             <img src="{% static 'img/tecnologia.png' %}" alt="TECNOLOGIA" width="300" height="300"></a>
@@ -80,7 +86,7 @@
         <a title="LIBRERIA" href="{% url 'Noperecible' %}">
             <img src="{% static 'img/libreria.png' %}" alt="LIBRERIA" width="300" height="300"></a>
     </div>
-       {% include 'footer.html' %}
+       {% include 'bloques/footer.html' %}
        {% block footer %}
        {% endblock %}
     </body>

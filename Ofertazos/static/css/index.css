@@ -1,0 +1,17 @@
+.idx-categorias{
+    width: 5vw;
+    height: 8vh;
+}
+.div-cont-categoria{
+    width: 5vw;
+    font-size: 10px;
+}
+#div-cont-categoria-todo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.idx-categorias:hover{
+    cursor: pointer;
+}
