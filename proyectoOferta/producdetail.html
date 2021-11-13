@@ -1,135 +1,87 @@
-{% include 'bloques/cabeza.html' %}
+{% include 'bloques/cabezaCliente.html' %}
 {% include 'bloques/mensajes.html' %}
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
+<link rel="stylesheet" href="{% static '/css/detalleproducto/detalleoferta.css'%}">
+<link rel="stylesheet" href="{% static '/css/detalleproducto/detalleproducto.css'%}">
+
 <html lang="en">
-<head>
-
-    <title>OFERTAZOS</title>
-    <link rel="stylesheet" href="{% static 'cssproduct/stPagP2.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <!-- PLANTILLA -->
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="{% static 'cssproduct/bootstrap.min.css' %}" />
-
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="{% static 'cssproduct/slick.css' %}" />
-    <link type="text/css" rel="stylesheet" href="{% static 'cssproduct/slick-theme.css' %}" />
-
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="{% static 'cssproduct/nouislider.min.css' %}" />
-
-    <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="{% static 'cssproduct/font-awesome.min.css' %}">
-
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="{% static 'cssproduct/style.css' %}" />
-    <!-- Valoracion -->
-    <link type="text/css" rel="stylesheet" href="{% static 'cssproduct/valoracion.css' %}" />
-
-</head>
-<body>
-         <!-- SECTION -->
-         <div class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <!-- Product main img -->
-                    <div class="col-md-5 col-md-push-2">
-                        <div id="product-main-img">
-                            {% load humanize %}
-                            <div class="product-preview">
-                                <img src="{{prod.FotoProducto.url}}" alt="">
-                           </div>
+    <body>
+        <div class='contenedorTodo'>
+            <div class="div-contenedor">
+                <div class="divcontenidoproducto">
+                    <img src="{{prod.FotoProducto.url}}" alt="">
+                    <div class="divcontenidoproductoinfo">
+                        <h1>{{prod.NomProducto | title}}</h1>
+                        <div class='divdescripcion'>
+                            <p>{{prod.DescripProducto}}</p>
                         </div>
-                    </div>
-                    <!-- /Product main img -->
-                    <!-- Product thumb imgs -->
-                    <div class="col-md-2  col-md-pull-5">
-                    </div>
-                    <!-- /Product thumb imgs -->
-                    <!-- Product details -->
-                    <div class="col-md-5">
-                        <div class="product-details">
-                            <h2 class="product-name">{{prod.NomProducto}}</h2>
-                            <div>
-                                <!-- VER SI FUNCIONA EL FORMATO DEL PRECIO EN LA LINEA DE ABAJO-->
-                                <h3 class="product-price"> ${{ prod.PrecioOferta | intcomma }}<del class="product-old-price"> ${{ prod.PrecioNormal | intcomma }}</del></h3>
-                                <h5>{{prod.PorcentajeDescuento}}% de descuento.</h5>
-                                <!-- VER EL STOCK Y PROGRAMARLO AKI SI ESTA EN EL FORMS-->
-                                <span class="product-available"> In Stock   {{prod.StockProducto}}</span>
+                        <div class='precios'>
+                            <div class='divprecios'>
+                                <h2 class='oferta'>Precio oferta: ${{ prod.PrecioOferta | intcomma }}</h2>
+                                <h6>{{prod.PorcentajeDescuento}}% OFF</h6>
                             </div>
-                            <p> {{prod.DescripProducto}}</p>
-                            <p>Tiene un {{positivas}}% de valoraciones positivas</p>
-                            <div class="add-to-cart">
-                                <!-- LINKEAR ACA EL PRODUCTO-->
-                                <p>Tienda: {{prod.TiendaProducto}}</p>
-                                <a href='{{prod.LinkProducto}}' button class="add-to-cart-btn">LINK PRODUCTO </button></a>  
-                            </div>
-                            <ul class="product-links">
-                                <!-- CATEGORIA PROGRAMAR EN LINEAS POSTERIORES-->
-                                {% if prod.IdRubro == 1 %}
-                                <span class="product-category"> Categoria:  Alimento</span>
-                                {% endif %}
-                                {% if prod.IdRubro == 2 %}
-                                <span class="product-category"> Categoria:  Electrodomésticos</span>
-                                {% endif %}
-                                {% if prod.IdRubro == 3 %}
-                                <span class="product-category"> Categoria:  Línea blanca</span>
-                                {% endif %}
-                                {% if prod.IdRubro == 4 %}
-                                <span class="product-category"> Categoria:  Ropa</span>
-                                {% endif %}
-                                <div><h6>Oferta disponible hasta: {{prod.FechaLimite}}</h6></div>
-                                <p>Publicado el día: {{prod.HoraPublicacion}}</p>
-                            </ul>
-                            {% if user.is_authenticated %}
-                            <h2 id="lel"></h2>
-                            <form action="" method="post" name="formularioValoracion">
-                                {% csrf_token %}
-                                <img src="{% static 'img/ProductoDetalle/valorarno.png' %}" class="StarValoracion" id="v1" alt="" srcset="">
-                                <img src="{% static 'img/ProductoDetalle/valorarno.png' %}" class="StarValoracion" id="v2" alt="" srcset="">
-                                <img src="{% static 'img/ProductoDetalle/valorarno.png' %}" class="StarValoracion" id="v3" alt="" srcset="">
-                                <input type="hidden" id="Valpuntos" name="ClientePuntos" value="0">
-                                <h2 id="valorarRespuesta"></h2>
-                                <input type="text" placeholder="Comentar" name="Comentario" id="publicado">
-                                <input type="hidden" name="bueno" id="bueno" value="0">
-                                <input type="hidden" name="cal" id="cal" value="0">
-                                <input type="hidden" name="malo" id="malo" value="0">
-                                <input type="hidden" id="ptscliente" name="PuntosAnadidos" value="0">
-                                <button>Publicar valoración</button>
-                            </form>
-                            <p>Si tienes la boleta de tu compra realizada, puedes subirla <a href="{% url 'subirboleta' %}">Aquí</a> para verificar si se ha respetado la oferta establecida.</p>
-                            
-                            {% else %}
-                            <h5>Para comentar, valorar y/o subir la boleta de compras debes de estar registrad@.</h5>
-                            {% endif %}
                         </div>
+                        <div class="PrecioNormal"><p>Precio normal: <del>${{ prod.PrecioNormal | intcomma }}</del></p></div>
+                        <div class="valoraciones"><p>Este producto tiene un {{positivas}}% de valoraciones positivas.</p></div>
+                        <div class="productostock"><p>Stock disponible: {{prod.StockProducto}}</p></div>
+                        <div class='tiendaproducto'><p>Tienda: {{prod.TiendaProducto}}</p></div>
+                        <div class="fecpub"><p>Publicado: {{prod.HoraPublicacion}}</p></div>
+                        <div class="fectermino"><p>Termino: {{prod.FechaLimite}}</p></div>
+                        <div class="linkproducto"><button><a href="{{prod.LinkProducto}}">link del producto</a></button></div>
                     </div>
-                    <!-- /Product details -->
                 </div>
-                <!-- /row -->
             </div>
-            <!-- /container -->
-        </div>
-        <!-- /SECTION -->
-    
-        <!-- VER SI AQUI SE PUEDE COLOCAR UN CARRUSEL AL IGUAL QUE EN L INDEX DE PRODUCTOS PARA RELLENO-->
-    <p>jijii</p>
+            <div class="divfunciones">
+                {% if user.is_authenticated %}
+                <h2 id="lel"></h2>
+                <form action="" method="post" name="formularioValoracion">
+                    {% csrf_token %}
+                    <div class="estrellitas">
+                        <div class='estrellas'>
+                            <img src="{% static 'img/ProductoDetalle/valorarno.png' %}" class="StarValoracion" id="v1" alt="" srcset="">
+                            <img src="{% static 'img/ProductoDetalle/valorarno.png' %}" class="StarValoracion" id="v2" alt="" srcset="">
+                            <img src="{% static 'img/ProductoDetalle/valorarno.png' %}" class="StarValoracion" id="v3" alt="" srcset="">
+                        </div>
+                    </div>
+                    <input type="hidden" id="Valpuntos" name="ClientePuntos" value="0">
+                    <h2 id="valorarRespuesta"></h2>
+                    <input type="text" placeholder="Comentar" name="Comentario" id="publicado">
+                    <input type="hidden" name="bueno" id="bueno" value="0">
+                    <input type="hidden" name="cal" id="cal" value="0">
+                    <input type="hidden" name="malo" id="malo" value="0">
+                    <input type="hidden" id="ptscliente" name="PuntosAnadidos" value="0">
+                    <button>Publicar valoración</button>
+                </form>
+                <p>Si tienes la boleta de tu compra realizada, puedes subirla <a href="{% url 'subirboleta' %}">Aquí</a> para verificar si se ha respetado la oferta establecida.</p>
+                
+                {% else %}
+                <h5>Para comentar, valorar y/o subir la boleta de compras debes de estar registrad@.</h5>
+                {% endif %}
+            </div>
+            <div class="contcomentarios">
+                <h3  class='divcomentarios'>Comentarios</h3>
+                {% for x in comentarios %}
+                <div class='div-comentarios'>
+                    <div class='com-contenedor'>
+                        <div class='com-usuario'>
+                            <h2>{{x.idUsuario.username | title}}</h2>
+                        </div>
+                        <div class="com-comentario">
+                            <p>{{x.comentario}}</p>
+                        </div>
+                        <div class='fechacomentario'><p>{{x.fecComentario}}</p></div>
+                    </div>
+            </div>
+            {% endfor %}
 
-    {% include 'bloques/footer.html' %}
-    {% block footer %}
-    {% endblock %}
-
-    <!-- Script estrellas valorar -->
-    <script src="{% static 'js/valoracion.js' %}"></script>
-</body>
+            </div>
+        {% include 'bloques/footer.html' %}
+        {% block footer %}
+        {% endblock %}
+        <!-- Script estrellas valorar -->
+        <script src="{% static 'js/valoracion.js' %}"></script>
+        <script src="{% static '/js/comentarios.js' %}"></script>
+    </body>
 </html>

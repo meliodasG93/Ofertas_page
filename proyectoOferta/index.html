@@ -1,5 +1,5 @@
 {% include 'bloques/mensajes.html' %}
-{% include 'bloques/cabeza.html' %}
+{% include 'bloques/cabezaCliente.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,58 +8,72 @@
     <link rel="stylesheet" href="{% static '/css/idxproductos.css' %}">
     <link rel="stylesheet" href="{% static '/css/Slide.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <link rel="stylesheet" href="{% static '/css/index/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/index/indexprod.css' %}">
 </head>
 <body> 
-    <main>
-        <div class="menu-principal">
-            <div class="contenedor">
-                <h3 class="titulo">OFERTAZOS</h3>
-                <p class="descripcion">
-                    Aquí podrás encontrar la mejor pagina de ofertas de todos los productos que te puedas imaginar, solo debes registrarte para poder obtener mas información de las ofertas al momento de publicarse.
-                </p>
+    <div class='div-fondo-img'>
+        <div class='div-fondo-tr'>
+            <div class='divbase'>
+                <div class='textoarea'>
+                    <div class='textoh1'>
+                        <h1>¡Bienvenid@ a Ofertazo!</h1>
+                        <h2>No te des la molestia de viajar por medio internet para encontrar buenas ofertas.</h2>
+                        <h2>¡Aquí sí que encontrarás buenos Ofertazos!</h2>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class='textoh2'>
+                        <h2>¡Bienvenid@ {{user}}!</h2>
+                        <h2>Esperamos que estés bien, te desea todo el equipo detrás de Ofertazos. </h2>
+                    </div>
+                    {% else %}
+                    <div class='textoh2'>
+                        <h2>Si ya posees cuenta ¡registrate!</h2>
+                        <h2>Si no, pues create una cuenta. ¡Es gratis!</h2>
+                        <div class="divbotones">
+                            <button><a href="{% url 'loginCliente' %}">Iniciar sesión</a></button>
+                            <button><a href="{% url 'registro' %}">Crear cuenta</a></button>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                
             </div>
         </div>
-    </main>
-    <!-- Bloque de Slide -->
-    {% include 'bloques/slide1.html' %}
-    <!-- ================================================================================================= -->
-    <div class="cuerpo">
-        <div class="Violeta">
-        <h2>LO QUE PUEDES ENCONTRAR EN OFERTAZOS</h2>
-        <p>Que es lo que esperas y encontraras aqui,obtendras un millón de ofertas de alimentos, electrónica, linea blanca, ropa y mucho mas, que esperas para registrarte y obtener todas estas estas ofertas en segundos.</p>
+    </div>
+    
+    <div class="div-contenido">
+        <div class='divVerOfertas'>
+            <div class="div-preOferta"><h2>Mira aquí las últimas ofertas subidas. 👀 o si quieres pasa directamente a ver todas las ofertas aquí.</h2></div>
+            <button><a href="#">Ver productos</a></button>
         </div>
-<!--======================================Bloque de categorias=============================================================================================================================================-->        
-        <div class="div-degradar">
-            <div class="div-categorias-opciones">
-                {% include 'bloques/categoria.html' %}
-                {% block ContentCategoria %}
-                {% endblock %}
-            </div>    
-        </div>
-           
-<!-----====================================Productos==========================================================================================================================================================================------->
-        
         <div id="divProductos" >
             {% for i in productos %} 
             {% load humanize %}
-            <div class="divContenedorGeneral" id="{{i.IdProducto}}" >
+            <div class="divContenedorGeneral">
                 <div class="divImgProducto">
                     <div class="divNombre"><h4>{{ i.NomProducto | title }}</h4></div>
                     {% if i.FotoProducto %}
                     <img src="{{i.FotoProducto.url}}" alt="{{ i.NomProducto }}" id="imgProducto">
                     {% endif %}
                     <div class="divprecios">
-                        <div class="precioNormal precioNormal{{ i.IdProducto }}"><h6>Precio original:     ${{ i.PrecioNormal | intcomma }}</h6></div>
-                        <div class="precioOferta precioOferta{{ i.IdProducto }}"><h6>Precio oferta:    ${{ i.PrecioOferta | intcomma }}</h6></div>
+                        <div class="precios">
+                            <div class="precioOferta"><h2>${{ i.PrecioOferta | intcomma }}</h2></div>
+                            <div class='oferta'><p>{{i.PorcentajeDescuento}}%</p></div>
+                        </div>           
+                        <div class="normalprecio"><del>Precio normal: ${{ i.PrecioNormal | intcomma }}</del></div>             
                     </div>
-                    <div class="divNombreTienda"></div>
-                    <button><a href="{% url 'ProductDetail' i.IdProducto %}">Ver Oferta</a></button>
+                    <div class="divNombreTienda"><p>{{i.TiendaProducto}}</p></div>
+                    <div class='botonesdiv'>
+                        <button><a href="{% url 'ProductDetail' i.IdProducto %}">Ver Oferta</a></button>
+                    </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
+    <!-- ================================================================================================= -->
+
         {% include 'bloques/footer.html' %}
 </body>
     <script src="{% static '/js/idx.js' %}"></script>

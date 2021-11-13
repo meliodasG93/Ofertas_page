@@ -1,4 +1,4 @@
-{% include 'bloques/cabeza.html' %}
+{% include 'bloques/cabezaCliente.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,8 @@
             </div>
         </div>
         <div id="div-contenedor-todo">
+            <h1>Crear cuenta</h1>
+            <p>Es un agrado que te unas a nuestra familia.</p>
             <div id = "div-contenedor-form">
                 <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
