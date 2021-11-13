@@ -1,0 +1,83 @@
+{% include 'bloques/cabeza.html' %}
+{% include 'bloques/mensajes.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <title>OFERTAZOS</title>
+    <link rel="stylesheet" href="{% static 'css/mpuntos/stPagP.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mpuntos/EThistorial.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com'">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+{% block perfil %}
+<!-- perfil -->
+  <!--==========================
+=            html            =
+===========================-->
+<section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <div class="perfil-usuario-avatar">
+                <img src="{{foto.url}}" alt="img-avatar">
+            </div>
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 id="saludo">Bienvenido a OFERTAZOS, {{user.username}}.</h3>
+           <p class="textO">Esperamos que tengas un excelente día. Te desea todo el personal detrás de Ofertazos. 🦎</p>
+        </div>
+        <div class="perfil-usuario-footer">
+            <ul class="lista-datos">
+                {% if categoria == 2 %}
+                <li><i class="fas"></i> Perfil modo vendedor.</li>
+                {% endif %}
+                <li><i class="fas"></i> Nombre completo:</li>
+                <li><i class="fas"></i>Fecha de nacimiento:</li>
+                <li><i class="fas"></i> Correo:</li>
+                {% if categoria == 2 %}
+                <li><i class="fas fa-building"></i> Tienda: </li>
+                {% endif %}
+            </ul>
+            <ul class="lista-datos">
+                <li><i class="fas "></i> {{nom}} {{mate}} {{pate}}.</li>
+                <li><i class="fas"></i> {{fecnac}}.</li>
+                <li><i class="fas fa-user-check"></i> {{user.email}}</li>
+                {% if categoria == 2 %}
+                <li><i class="fas fa-user-check"></i>{{user.Tienda}}</li>
+                {% endif %}
+            </ul>
+        </div>
+        <br>
+        {% if categoria == 4 %}
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo">Puntos acumulados</h3>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-marker-alt"></i> PUNTOS ACUMULADOS.</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-map-marker-alt"></i>{{puntos}}</li>
+                </ul>
+                <button><a href="{% url 'cupones' request.user.id %}">Cobrar descuentos</a></button>
+            </div>
+        {% endif %}
+        </div>
+    <br>
+    </div>
+    <div class="perfil-usuario-bio">
+        <h3 class="titulo">Descarga de puntos</h3>
+    </div>
+</section>
+<!--====  End of html  ====-->
+{% endblock %}
+ <!-- footer   -->
+</body>
+</html>

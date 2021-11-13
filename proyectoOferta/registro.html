@@ -1,0 +1,37 @@
+{% include 'bloques/cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% block header %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/registrarse/registrarse.css' %}">
+    <div id='divMadre'>
+        <div id='DivHijoIzquierda'>
+            <div id = "texto">
+                <h1>¡Bienvenid@ a Ofertazos!</h1>
+                <h4>¡En donde los buenos productos los encuentras a bajo precio!</h4>
+                <h4>¿Qué esperas para unirte? ;)</h4>
+            </div>
+        </div>
+        <div id="div-contenedor-todo">
+            <div id = "div-contenedor-form">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    {{form1.as_p}}
+                    <input type="hidden" name="valorcorreo" id="respuesta">
+                    <button type="submit" id="boton">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    {% include 'bloques/footer.html' %}
+    {% block footer %}
+    {% endblock %}
+    <script src="{% static 'js/correo.js' %}"></script>
+</body>
+
+</html>

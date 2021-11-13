@@ -1,0 +1,60 @@
+{% include 'bloques/mensajes.html' %}
+{% include 'bloques/cabeza.html' %}
+{% load static %}
+{% include 'bloques/barrabusqueda.html' %}
+{% if buscar %}
+<body>
+    <link rel="stylesheet" href="{% static 'css/busqueda.css' %}">
+    <link rel="stylesheet" href="{% static 'css/productos/productos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/productos/puntoOferta.css' %}">
+    <link rel="stylesheet" href="{% static '/css/footer/footer.css' %}">
+    <link rel="stylesheet" href="{% static '/css/productos/listafiltros.css' %}">
+
+    <div class='div-busqueda'>
+    <h1>Resultados para: {{buscar}}</h1>
+    </div>
+        <div id="divProductos">
+            {% for i in productos %}
+            {% load humanize %}
+            <div class="divContenedorGeneral" id="{{i.IdProducto}}" >
+                <div class="divImgProducto">
+                    {% if i.FotoProducto %}
+                    <img src="{{i.FotoProducto.url}}" alt="{{ i.NomProducto }}" id="imgProducto">
+                    {% endif %}
+                    <div class="divNombre"><h4 class="texto">{{ i.NomProducto | title }}</h4></div>
+                    <div>
+                        {% if i.IdRubro == 1 %}
+                       <p class="rubro">alimentos</p>
+                       {% endif %}
+                       {% if i.IdRubro == 2 %}
+                       <p class="rubro">Electrodomésticos</p>
+                       {% endif %}
+                       {% if i.IdRubro == 3 %}
+                       <p class="rubro">Línea Blanca</p>
+                       {% endif %}
+                       {% if i.IdRubro == 4 %}
+                       <p class="rubro">Ropa</p>
+                       {% endif %}
+                    </div>
+                    <div class="divprecios">
+                        <div class='div-preODesc'>
+                            <div class="oferta"><h5 class="texto" id="poferta">${{ i.PrecioOferta | intcomma }}</h5></div>
+                            <div class="descuento"><p class=" descuento">{{i.PorcentajeDescuento}}% </p></div>
+                        </div>
+                        <div class="precioNormal texto"><h6  id="pnormal">${{ i.PrecioNormal | intcomma }}</h6></div>
+                        <!-- <input type="hidden" value="{{i.PrecioNormal}}" id="pnormal">
+                        <input type="hidden" value="{{i.PrecioOferta}}" id="poferta"> -->
+                        <!-- <h5 id="descuento">Descuento </h5> -->
+                    </div>
+                    <div class="divNombreTienda"></div>
+                    <button id="veroferta"><a href="{% url 'ProductDetail' i.IdProducto %}">Visualizar oferta</a></button>
+                </div>
+            </div>        
+            {% endfor %}
+            {% else %}
+        </div>
+    <div class='div-busqueda'>
+        <h1>No se ha encontrado.</h1>
+    </div>
+    {% endif %}
+</body>

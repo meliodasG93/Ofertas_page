@@ -1,0 +1,56 @@
+{% include 'bloques/cabeza.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/cupones/cupones.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class='div-img-cupon'>
+            <div class='texto'>
+                <h1>¡Felicitaciones {{user}}!</h1>
+                <h2>¡Tienes los puntos necesarios para obtener cupones de descuentos!</h2>
+                <h3>¡Estos son los puntos que posees actualmente! 👉{{puntos}}👈</h3>
+                <h5>¡Aquí abajito puedes reclamarlo e ir a usarlos como quieras! 😎</h5>
+            </div> 
+            <div class='div-contenido'>
+                <div class='cupones'>
+                    {% if puntos >= 10 and puntos < 500 %}
+
+                    <div class='cienpts'>
+                        <div><h2>¡Con este cupon podrás acceder a descuentos solo para el rubro para alimentos!</h2></div>
+                        <h4>Para productos con un tope máximo de $100.000CLP, obteniendo un 5% de descuento.</h4>
+                        <div><h4>Así que a tomar teléfono y obtén tu merecido cupón! </h4></div>
+                        <img class='imgqr' src="{% static '/img/qr/100pts.PNG' %}" alt="">
+                    </div>
+                    {% endif %}
+                    {% if puntos > 999 %}
+                    <div class='milpts'>
+                        <div><h2>¡Con este cupon podrás acceder a descuentos solo para el rubro para alimentos, electrónica, línea blanca y ropa!</h2></div>
+                        <h4>Para productos con un tope máximo de $300.000CLP, obteniendo un 15% de descuento.</h4>
+                        <div><h4>Así que a tomar teléfono y obtén tu merecido cupón! </h4></div>
+                        <img class='imgqr' src="{% static '/img/qr/1000pts.PNG' %}" alt="">
+                    </div>
+                    {% endif %}
+                    {% if puntos >= 500 and puntos < 1000 %}
+                    <div class='cincomilpts'>
+                        <div><h2>¡Con este cupon podrás acceder a descuentos solo para el rubro de alimentos, electrónica y línea blanca </h2></div>
+                        <h4>Para productos con un tope máximo de $150.000CLP, obteniendo un 10% de descuento</h4>
+                        <div><h4>Así que a tomar teléfono y obtén tu merecido cupón! </h4></div>
+                        <img class='imgqr' src="{% static '/img/qr/500pts.PNG' %}" alt="">
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</body>
+</html>

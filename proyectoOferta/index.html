@@ -1,55 +1,68 @@
+{% include 'bloques/mensajes.html' %}
+{% include 'bloques/cabeza.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Esta es una web que nos recomienda varias peliculas de todos los años" />
-    <meta name="keywords" content="HTML meta tags, clases de HTML, curso de HTML, video tutorial de HTML, curso online" />
-    <meta name="author" content="Bastian Clavijo,Francisco Montano,Ivette Rojas" />
-
-    <title>OFERTAMAN</title>
-    <link rel="stylesheet" href="css/stPagP.css">
-
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/idxproductos.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Slide.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 </head>
-<body>
-
-    <body>
-        <header>
+<body> 
+    <main>
+        <div class="menu-principal">
             <div class="contenedor">
-                <h2 class="logotipo">OFERTAMAN</h2>
-                <nav>
-                    <a href="index.html">Inicio</a>
-                    <a href="login.html">Login</a>
-                    <a href="">Productos</a>
-                    <a href="tiendas.html">Tiendas asociadas</a>
-                    <a href="">Acerca de nosotros</a>
-                </nav>
+                <h3 class="titulo">OFERTAZOS</h3>
+                <p class="descripcion">
+                    Aquí podrás encontrar la mejor pagina de ofertas de todos los productos que te puedas imaginar, solo debes registrarte para poder obtener mas información de las ofertas al momento de publicarse.
+                </p>
             </div>
-        </header>
-
+        </div>
+    </main>
+    <!-- Bloque de Slide -->
+    {% include 'bloques/slide1.html' %}
+    <!-- ================================================================================================= -->
+    <div class="cuerpo">
+        <div class="Violeta">
+        <h2>LO QUE PUEDES ENCONTRAR EN OFERTAZOS</h2>
+        <p>Que es lo que esperas y encontraras aqui,obtendras un millón de ofertas de alimentos, electrónica, linea blanca, ropa y mucho mas, que esperas para registrarte y obtener todas estas estas ofertas en segundos.</p>
+        </div>
+<!--======================================Bloque de categorias=============================================================================================================================================-->        
+        <div class="div-degradar">
+            <div class="div-categorias-opciones">
+                {% include 'bloques/categoria.html' %}
+                {% block ContentCategoria %}
+                {% endblock %}
+            </div>    
+        </div>
+           
+<!-----====================================Productos==========================================================================================================================================================================------->
         
-
-        <footer>
-            <nav>
-                <h4>
-                    <a href="index.html">Inicio</a> &nbsp; <a href="contacto.html">Contacto</a>
-                </h4>
-
-                <h4>Derechos Reservados &copy;2021 <br> Email:  <br> www.ofertaman.cl</h4><br>
-                <a href=" http://www.facebook.com ">
-                    <img src="img/facebook.png ">
-                </a>
-              
-                <a href="https://www.instagram.com/?hl=es-la ">
-                    <img src="img/instagram.jpg ">
-                </a>
-            </nav>
-        </footer>
-    </body>
-
+        <div id="divProductos" >
+            {% for i in productos %} 
+            {% load humanize %}
+            <div class="divContenedorGeneral" id="{{i.IdProducto}}" >
+                <div class="divImgProducto">
+                    <div class="divNombre"><h4>{{ i.NomProducto | title }}</h4></div>
+                    {% if i.FotoProducto %}
+                    <img src="{{i.FotoProducto.url}}" alt="{{ i.NomProducto }}" id="imgProducto">
+                    {% endif %}
+                    <div class="divprecios">
+                        <div class="precioNormal precioNormal{{ i.IdProducto }}"><h6>Precio original:     ${{ i.PrecioNormal | intcomma }}</h6></div>
+                        <div class="precioOferta precioOferta{{ i.IdProducto }}"><h6>Precio oferta:    ${{ i.PrecioOferta | intcomma }}</h6></div>
+                    </div>
+                    <div class="divNombreTienda"></div>
+                    <button><a href="{% url 'ProductDetail' i.IdProducto %}">Ver Oferta</a></button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+        {% include 'bloques/footer.html' %}
+</body>
+    <script src="{% static '/js/idx.js' %}"></script>
+    <script src="{% static '/js/idxcatverde.js' %}"></script>
+ 
 </html>

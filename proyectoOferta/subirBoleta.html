@@ -1,0 +1,38 @@
+{% load static %}
+{% include 'bloques/cabeza.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/subirboleta/subirboleta.css' %}">
+</head>
+<body>
+    <div class="div-img">
+        <div class="relleno">
+            <h1>Subir boleta de compra</h1>
+            <h2>¡{{user}}, aquí puedes subir la foto de tu boleta de compra!</h2>
+        </div>
+    </div>
+    <div class="contenido">
+        <div>
+            <h1>{{user}}, ¿Para qué subir boleta?</h1>
+            <div class="contenidoinfo">
+                <h4>Tu boleta de compra será enviada a personal de Ofertazos para verificar que la oferta se haya respetado</h4>
+                <h4>Por eso necesitamos que compartas la boleta y evitar así que caigas en una publicidad engañosa.</h4>
+                <h4>El archivo debe ser de un formato de imagen jpg, bmp o jpeg para subirlo.</h4>
+                <h4>Prontamente te enviaremos un correo electrónico con la respuesta.</h4>
+                <div class="subir">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file">
+                        <button type="submit">Subir boleta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
